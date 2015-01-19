@@ -70,6 +70,15 @@
     #squeekout, .lst-none{
       list-style-type: none;
     }
+
+    .lst-lowalph{
+      list-style-type: lower-alpha;
+    }
+
+    .examples{
+      text-align: center;
+    }
+
     .img-center{
       margin-right: auto;
       margin-left:auto;
@@ -89,7 +98,7 @@
       <li><a href="#data">Data: You can get it!</a></li>
       <li><a href="#base">Tile Basemap</a></li>
       <li><a href="#gh-pages">Hosting with GitHub Pages</a></li>
-      <li><a href="#"></a></li>
+      <li><a href="#leaflet">Leaflet...at last!</a></li>
       <li><a href="#"></a></li>
       <li><a href="#"></a></li>
       <li><a href="#"></a></li>
@@ -99,7 +108,7 @@
     </ul>
 
     <hr>
-    
+
     <h2 id="intro">Introduction</h2>
     <a href="https://twitter.com/maptimelex" target="_blank">@maptimelex</a> &amp; <a href="https://twitter.com/rmcooper4" target="_blank">@rmcooper4</a>
     <p>
@@ -195,19 +204,21 @@
     </p>
     <img src="https://raw.githubusercontent.com/maptimelex/leaflet-squirrels/master/squirrel-cheeks.jpg" style="width: 75%" class="img-center">
     <p>
-    When you store your project there will a be total of 5 files in your repository that that run your app. Once you have enabled your github pages branch, you can delete everything except for the index.html file. It will keep all the code
-        for your app, you can rename it if you like as well. Our <a href="https://github.com/maptime/hrva/tree/gh-pages/ghosts" target="_blank">sample repository</a> demonstrates the
-        <it>grisly</it> set-up for this project.
+    When you store your project there will a be total of 5 files in your repository that that run your app. Once you have enabled your github pages branch, you can delete everything except for the index.html file. It will keep all the code for your app, you can rename it if you like as well. Our <a href="https://github.com/maptimelex/leaflet-squirrels" target="_blank">sample repository</a> demonstrates the set-up for this project.
     </p>
-              <hr>
-                <bg>Hhhhhhhhere's Leaflet!</bg>
-                <br>Leaflet is the <it>hocus pocus</it> behind may of today's web-mapping applications. It provides an extensive library of functions
-                  supported by a dedicated team of contributors. We are going to use the <a href="http://leafletjs.com" target="_blank">Leaflet.js</a> library
-                  to create our map. Using the <it>wicked</it>  documentation from the Leaflet.js website, we are going
-                      to start with the most basic components needed for a map. We are going to:
-                      a) Add Leaflet starter code b) Specify the lat/long of our location c) Add our tile layer URL from MapStack
-                      <br><a href="https://github.com/maptime/hrva/blob/gh-pages/ghosts/part1.html" target="_blank">Code</a> /
-                        <a href="http://maptime.github.io/hrva/ghosts/part1.html" target="_blank">Example</a>
+
+    <hr>
+    
+    <h2>Leaflet...at last!</h2>
+    <p>
+      Leaflet is the <it>hocus pocus</it> behind may of today's web-mapping applications. It provides an extensive library of functions supported by a dedicated team of contributors. We are going to use the <a href="http://leafletjs.com" target="_blank">Leaflet.js</a> library to create our map. Using the documentation from the Leaflet.js website, we are going to start with the most basic components needed for a map. We are going to:
+    </p>
+    <ol class="lst-lowalph">
+      <li>Add Leaflet starter code</li>
+      <li>Specify the lat/long of our location</li>
+      <li>Add our tile layer URL from MapStack</li>
+    </ol>
+    <p class="examples"><a href="https://github.com/maptime/hrva/blob/gh-pages/ghosts/part1.html" target="_blank">Code</a> | <a href="http://maptime.github.io/hrva/ghosts/part1.html" target="_blank">Example</a></p>
                         <hr>
                           <bg>Data Part 2: The Return</bg>
                             <br>We have a pretty <it>unnerving</it>  map so far. Let's add our .geojson file we made earlier.
