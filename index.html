@@ -101,8 +101,8 @@
       <li><a href="#leaflet">Leaflet...at last!</a></li>
       <li><a href="#ssa-capitals">Adding Feature Data: SSA Capitals</a></li>
       <li><a href="#custom-icon">Custom Icon</a></li>
-      <li><a href="#"></a></li>
-      <li><a href="#"></a></li>
+      <li><a href="#popup">Pop-up Window</a></li>
+      <li><a href="#ssa-states">Adding Feature Data: SSA States</a></li>
       <li><a href="#"></a></li>
       <li><a href="#"></a></li>
     </ul>
@@ -224,7 +224,7 @@
     
     <hr>
 
-    <h2 id="ssa-capitals">Adding Feature Data: SSA Capitals</bg>
+    <h2 id="ssa-capitals">Adding Feature Data: SSA Capitals</h2>
     <p>
       We have a pretty <it>unnerving</it>  map so far. Let's add our .geojson file we made earlier. An added step is using a <a href="http://code.jquery.com/jquery-2.1.1.min.js" target="_blank">jQuery</a> library to handle the interaction of our data.
     </p>
@@ -252,22 +252,39 @@
     <ol class="lst-lowalph">
       <li>Add a new icon</li>
     </ol>
-    <p>
+    <p class="examples">
       <a href="https://github.com/maptimelex/leaflet-squirrels/blob/gh-pages/part3.html" target="_blank">Code</a> | <a href="http://maptimelex.github.io/leaflet-squirrels/part3.html" target="_blank">Example</a>
 
     <hr>
 
-    <h2>I Ain't Afraid Of No Ghosts</h2>
+    <h2 id="popup">Pop-up Window</h2>
     <p>
-      So we have some pretty <it>frightening</it>  icons for our dots, but we really want to tell the viewer what they are. Let's add some pop-ups from our data's attributes:
+      The squirrels' eyes gaze on their underlings, but it'd be nice to know more about these squirrel capitals. Let's add some pop-ups from our data's attributes:
     </p>
-    <ol>
+    <ol class="lst-lowalph">
       <li>Create the pop-up</li>
       <li>Format the text</li>
       <li>Optionally style with css</li>
     </ol>
+    <p class="examples">
+      <a href="https://github.com/maptimelex/leaflet-squirrels/blob/gh-pages/part4.html" target="_blank">Code</a> | <a href="http://maptimelex.github.io/leaflet-squirrels/part4.html" target="_blank">Example</a>
+    </p>
+
+    <hr>
+
+    <h2 id="ssa-states">Adding Feature Data: SSA States</h2>
     <p>
-      <a href="https://github.com/maptime/hrva/blob/gh-pages/ghosts/part4.html" target="_blank">Code</a> | <a href="http://maptime.github.io/hrva/ghosts/part4.html" target="_blank">Example</a>
+      We have a map of our squirrel capitals, but what about the states? Let's see what the areas are under the dominion of each squirrel capital. Adding the states polygons is a similar process to when we added the capitals. We don't have to reference jQuery again. We only have to do that once!
+    </p>
+    <p>
+      We have to:
+    </p>
+    <ol class="lst-lowalph">
+      <li>Load our data</li>
+      <li>Add it to the map</li>
+    </ol>
+    <p class="examples">
+      <a href="https://github.com/maptimelex/leaflet-squirrels/blob/gh-pages/part5.html" target="_blank">Code</a> | <a href="http://maptimelex.github.io/leaflet-squirrels/part5.html" target="_blank">Example</a>
     </p>
 
   </div>
