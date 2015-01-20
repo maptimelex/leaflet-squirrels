@@ -296,7 +296,7 @@
 
     <h2 id="custom-area">Custom Area Fill</h2>
     <p>
-      Our squirrels look so posh in wearing their crowns and ontop of their simple, yet elegant basemap. They deserve better than that garish blue area fill for their respective states. Luckily, it takes just a little extra code to get our map styled. We're going to keep it simple, keeping the fill of the states hollow and showing where their boundaries would be. 
+      Our squirrels look so posh in wearing their crowns and ontop of their simple, yet elegant basemap. They deserve better than that garish blue area fill for their respective states. Luckily, it takes just a little extra code to get our map styled. We're going to keep it simple, keeping the fill of the a transparent black and showing where their boundaries would be. 
     <p>
       We've got two steps:
     </p>
@@ -332,8 +332,8 @@
     var statesStyle = {
       "color":"#000000",
       "weight": 2,
-      "fillColor": "#ffffff",
-      "fillOpacity":0
+      "fillColor": "#000000",
+      "fillOpacity":0.25
     };
 
     //load GeoJSON polygons from external file
