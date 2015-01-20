@@ -43,7 +43,7 @@
   <script>
 
   // initialize the map centered on the geographic center of the lower 48
-  var map = L.map('map').setView([39.833, -98.35], 3);
+  var map = L.map('map').setView([39.833, -98.35], 4);
 
   // load tile layer from mapstack we copied earlier and use the required attribution
   L.tileLayer(
@@ -51,12 +51,21 @@
         attribution: 'Map tiles by <a href=”http://stamen.com”>Stamen Design</a>, under <a href=”http://creativecommons.org/licenses/by/3.0”>CC BY 3.0</a>. Data by <a href=”http://openstreetmap.org”>OpenStreetMap</a>, under <a href=”http://creativecommons.org/licenses/by-sa/3.0”>CC BY SA</a>',
       // we want to limit the scrollability
       maxZoom: 6,
-      minZoom: 3
+      minZoom: 4
     }).addTo(map);
     
 
+  var statesStyle = {
+    "color":"#000000",
+    "weight": 2,
+    "fillColor": "#ffffff",
+    "fillOpacity":0
+  };
+
   $.getJSON("ssa-states.geojson", function(stateData){
-    L.geoJson(stateData).addTo(map);
+    L.geoJson(stateData, {
+      style: statesStyle
+    }).addTo(map);
   });
 
      // load the geojson file you saved in this directory
