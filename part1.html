@@ -13,15 +13,15 @@
   <script>
 
   // initialize the map centered on the geographic center of the lower 48
-  var map = L.map('map').setView([39.833, -98.35], 3);
+  var map = L.map('map').setView([39.833, -98.35], 4);
 
   // load tile layer from mapstack we copied earlier and use the required attribution
   L.tileLayer(
     'http://{s}.sm.mapstack.stamen.com/((naip,$fff[difference],$fff[@60],$fff[hsl-saturation@90])[multiply],(mapbox-water,$fff[difference],$000[@60],$090d11[hsl-color]))/{z}/{x}/{y}.png', {
         attribution: 'Map tiles by <a href=”http://stamen.com”>Stamen Design</a>, under <a href=”http://creativecommons.org/licenses/by/3.0”>CC BY 3.0</a>. Data by <a href=”http://openstreetmap.org”>OpenStreetMap</a>, under <a href=”http://creativecommons.org/licenses/by-sa/3.0”>CC BY SA</a>',
       // we want to limit the scrollability
-      maxZoom: 6,
-      minZoom: 3
+      maxZoom: 19,
+      minZoom: 4
     }).addTo(map);
 
   </script>

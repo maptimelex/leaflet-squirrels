@@ -108,7 +108,7 @@
       <li><a href="#custom-icon">Custom Icon</a></li>
       <li><a href="#popup">Pop-up Window</a></li>
       <li><a href="#ssa-states">Adding Feature Data: SSA States</a></li>
-      <li><a href="#custom-fill">Custom Area Fill</a></li>
+      <li><a href="#custom-area">Custom Area Fill</a></li>
       <li><a href="#"></a></li>
     </ul>
 
@@ -310,12 +310,12 @@
   <div class='custom-popup' id="map"></div>
   <script>
     // initialize the map
-    var map = L.map('map').setView([39.833, -98.35], 3);
+    var map = L.map('map').setView([39.833, -98.35], 4);
     L.tileLayer(
       'http://{s}.sm.mapstack.stamen.com/((naip,$fff[difference],$fff[@60],$fff[hsl-saturation@90])[multiply],(mapbox-water,$fff[difference],$000[@60],$090d11[hsl-color]))/{z}/{x}/{y}.png', {
         attribution: 'Map tiles by <a href=”http://stamen.com”>Stamen Design</a>, under <a href=”http://creativecommons.org/licenses/by/3.0”>CC BY 3.0</a>. Data by <a href=”http://openstreetmap.org”>OpenStreetMap</a>, under <a href=”http://creativecommons.org/licenses/by-sa/3.0”>CC BY SA</a>',
-        maxZoom: 6,
-        minZoom: 3,
+        maxZoom: 18,
+        minZoom: 4,
       }).addTo(map);
 
     var sidebar = L.control.sidebar('sidebar', {
