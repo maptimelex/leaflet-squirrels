@@ -1,7 +1,7 @@
 <html>
 
 <head>
-  <title>Haunted HRVA</title>
+  <title>maptimeLEX - Leaflet + Squirrel States of America</title>
   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
   <link rel="stylesheet" href="L.Control.Sidebar.css" />
   <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
@@ -29,13 +29,8 @@
       font-size: 10pt;
       font-family: 'Comic Sans MS', monospace;
     }
-    .leaflet-sidebar > .leaflet-control it {
-      font-size: 12pt;
-      color: #252138;
-      text-shadow: 2px 2px 2px rgba(255, 255, 255, 0.4);
-    }
     .leaflet-sidebar > .leaflet-control a {
-      color: #8e44ad;
+      color: #2980b9;
     }
     .leaflet-sidebar > .leaflet-control hr {
       display: block;
@@ -85,8 +80,12 @@
       list-style-type: lower-alpha;
     }
 
-    .examples{
+    .examples, #squeeklaugh{
       text-align: center;
+    }
+
+    #squeeklaugh{
+      font-family: 'Comic Sans MS', monospace; 
     }
 
     .img-center{
@@ -101,7 +100,7 @@
     <hr>
     
     <h2>Table of Contents</h2>
-    <ul class="lst-none">
+    <ol>
       <li><a href="#intro">Introduction</a></li>
       <li><a href="#acknowledge">Acknowledgements</a></li>
       <li><a href="#tech">Tech We'll Use</a></li>
@@ -116,8 +115,8 @@
       <li><a href="#popup">Pop-up Window</a></li>
       <li><a href="#ssa-states">Adding Feature Data: SSA States</a></li>
       <li><a href="#custom-area">Custom Area Fill</a></li>
-      <li><a href="#"></a></li>
-    </ul>
+      <!-- <li><a href="#"></a></li> -->
+    </ol>
 
     <hr>
 
@@ -228,8 +227,20 @@
       There are two main datasets we'll be working with that are derived from this GNIS data. The first one is called ssa-capitals.geojson. This is a point dataset that shows the location of the 21 squirrelly places filtered from that full GNIS dataset. We'll be using them as capitals for our Squirrel States of America (SSA). Check it out <a href="https://github.com/maptimelex/leaflet-squirrels/blob/master/ssa-capitals.geojson" target="_blannk">here</a>.
     </p>
     <p>
-      The second dataset is ssa-states.geojson. This is polygon dataset showing the extent of each squirrel state in the SSA. They are simply Voronoi polygons created in QGIS that were clipped by the boundaries of the the USA. Check it out <a href="https://github.com/maptimelex/leaflet-squirrels/blob/master/ssa-states.geojson" target="_blank">here</a>.Surely there are other more creative methods for drawing these boundaries. Feel free to create your own. I suggest using a cool tool called <a href="http://geojson.io/" target="_blank">GeoJSON.io</a>.
+      The second dataset is ssa-states.geojson. This is polygon dataset showing the extent of each squirrel state in the SSA. They are simply Voronoi polygons created in QGIS that were clipped by the boundaries of the the USA.
     </p>
+    <a class="embedly-card" href="http://en.wikipedia.org/wiki/Voronoi_diagram">Voronoi diagram - Wikipedia, the free encyclopedia</a>
+    <script async src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
+    <p>
+       Check it out <a href="https://github.com/maptimelex/leaflet-squirrels/blob/master/ssa-states.geojson" target="_blank">here</a>.Surely there are other more creative methods for drawing these boundaries. Feel free to create your own. I suggest using a cool tool called <a href="http://geojson.io/" target="_blank">GeoJSON.io</a>.
+    </p>
+
+    <p>Download the following files to your project directory</p>
+    <ul>
+      <li><a href="https://raw.githubusercontent.com/maptimelex/leaflet-squirrels/gh-pages/ssa-capitals.geojson" target="_blank">ssa-capitals.geojson</a></li>
+      <li><a href="https://github.com/maptimelex/leaflet-squirrels/blob/gh-pages/ssa-states.geojson" target="_blank">ssa-states.geojson</a></li>
+      <li><a href="https://github.com/maptimelex/leaflet-squirrels/blob/gh-pages/squirrel-king-icon.png">squirrel-king-icon.png</a> (more on this later)</li>
+    </ul>
 
     <hr>
 
@@ -260,7 +271,7 @@
     
     <h2 id="leaflet">Leaflet...at last!</h2>
     <p>
-      Leaflet is the <it>hocus pocus</it> behind may of today's web-mapping applications. It provides an extensive library of functions supported by a dedicated team of contributors. We are going to use the <a href="http://leafletjs.com" target="_blank">Leaflet.js</a> library to create our map. Using the documentation from the Leaflet.js website, we are going to start with the most basic components needed for a map. We are going to:
+      Leaflet is the magic behind many of today's web-mapping applications. It provides an extensive library of functions supported by a dedicated team of contributors. We are going to use the <a href="http://leafletjs.com" target="_blank">Leaflet.js</a> library to create our map. Using the documentation from the Leaflet.js website, we are going to start with the most basic components needed for a map. We are going to:
     </p>
     <ol class="lst-lowalph">
       <li>Add Leaflet starter code</li>
@@ -275,7 +286,7 @@
 
     <h2 id="ssa-capitals">Adding Feature Data: SSA Capitals</h2>
     <p>
-      We have a pretty <it>unnerving</it>  map so far. Let's add our .geojson file we made earlier. An added step is using a <a href="http://code.jquery.com/jquery-2.1.1.min.js" target="_blank">jQuery</a> library to handle the interaction of our data.
+      It's cool that we hae our basemap down, but the squirrels want more! Let's add some of the .geojson file we looked at earlier. An added step is using a <a href="http://code.jquery.com/jquery-2.1.3.min.js" target="_blank">jQuery</a> library to handle the interaction of our data.
     </p>
     <p>
       We are going to:
@@ -293,7 +304,11 @@
                                   
     <h2 id="custom-icon">Custom Icon</h2>
     <p>
-      Our country has been taken over by egomaniacal squirrels. Would they really be satisfied with DEFAULT icons? We must keep them pleased! Fortunately, Leaflet allows us to use our own icons. <a href="https://github.com/maptime/hrva/blob/gh-pages/ghosts/boo.gif" target="_blank">Here's one that will remind our squirrel overlords that they indeed are the rulers of us all</a>! Mwahsqueeksqueeksqueeksqueek!!!!
+      Our country has been taken over by egomaniacal squirrels. Would they really be satisfied with DEFAULT icons? We must keep them pleased! Fortunately, Leaflet allows us to use our own icons. <a href="https://github.com/maptimelex/leaflet-squirrels/blob/gh-pages/squirrel-king-icon.png" target="_blank">Here's one that will remind our squirrel overlords that they indeed are the rulers of us all</a>!
+    </p>
+    <img src="https://raw.githubusercontent.com/maptimelex/leaflet-squirrels/gh-pages/squirrel-king-icon.png" class="img-center"/>
+    <p id="squeeklaugh">
+      <em><strong>Mwahsqueeksqueeksqueeksqueek!!!!</strong></em>
     </p>
     <p>
       Only one step here lets:
@@ -323,7 +338,7 @@
 
     <h2 id="ssa-states">Adding Feature Data: SSA States</h2>
     <p>
-      We have a map of our squirrel capitals, but what about the states? Let's see what the areas are under the dominion of each squirrel capital. Adding the states polygons is a similar process to when we added the capitals. We don't have to reference jQuery again. We only have to do that once!
+      We have a map of our squirrel capitals, but what about the states? Let's see what areas are under the dominion of each squirrel capital. Adding the states polygons is a similar process to when we added the capitals. We don't have to reference jQuery again. We only have to do that once!
     </p>
     <p>
       We have to:
