@@ -24,6 +24,11 @@
       font-size: 16pt;
       font-family: 'Comic Sans MS', monospace;
     }
+
+    .leaflet-sidebar > .leaflet-control h3 {
+      font-size: 10pt;
+      font-family: 'Comic Sans MS', monospace;
+    }
     .leaflet-sidebar > .leaflet-control it {
       font-size: 12pt;
       color: #252138;
@@ -100,9 +105,11 @@
       <li><a href="#intro">Introduction</a></li>
       <li><a href="#acknowledge">Acknowledgements</a></li>
       <li><a href="#tech">Tech We'll Use</a></li>
+      <li><a href="#back">Set-up: Back End</a></li>
+      <li><a href="#front">Set-up: Front End</a></li>
       <li><a href="#data">Data: You can get it!</a></li>
       <li><a href="#base">Tile Basemap</a></li>
-      <li><a href="#gh-pages">Hosting with GitHub Pages</a></li>
+      <!-- <li><a href="#gh-pages">Hosting with GitHub Pages</a></li> -->
       <li><a href="#leaflet">Leaflet...at last!</a></li>
       <li><a href="#ssa-capitals">Adding Feature Data: SSA Capitals</a></li>
       <li><a href="#custom-icon">Custom Icon</a></li>
@@ -134,7 +141,7 @@
       When you're a squirrel, pretty much everyone is a giant. And it is on the backs of giants that this tutorial was built. Special squeek outs to:
     </p> 
     <ul id="squeekout">
-      <li>Jonah Adkins (maptimeHRVA)
+      <li><a href="https://twitter.com/jonahadkins" target="_blank">Jonah Adkins</a> (maptimeHRVA)
         <ul class="lst-none">
           <li>The majority of this tutorial is an adaptation of what Jonah put together for maptimeHRVA's October meetup.</li>
         </ul>
@@ -165,8 +172,45 @@
       <li><a href="http://geojson.io/" target="_blank">GeoJSON.io</a></li>
       <li><a href="http://mapstack.stamen.com/" target="_blank">MapStack</a></li>
       <li>Text Editor</li>
-      <li>Github Pages</li>
+      <li>Python SimpleHTTPServer</li>
     </ul>
+
+    <hr>
+
+    <h2 id="back">Set-up: Backend</h2>
+    <p>
+      Before we get to mapping, we need to ensure that our project is organized and that we can check our progress in the browser as we add new features.
+    </p>
+    <p>
+      First, create a directory somewhere on you computer where you'll store your project. Perhaps give the folder a descriptive name like "leaflet-squirrels".
+    </p>
+    <p>
+      Next, you'll want to start a local server using the Python module SimpleHTTPServer. If you don't have Python, grab it <a href="https://www.python.org/downloads/" target="_blank">here</a>. Version 2.7.x is the one you want. <a href="http://www.pythonforbeginners.com/modules-in-python/how-to-use-simplehttpserver/" target="_blank"><em>Python for Beginners</em></a> has a nice walk-through for starting your server, but you really just need to open Terminal(OSX/Linux)/Command Prompt(Windows), navigate to your project's directory, and input the following command:
+    </p>
+    <!-- HTML generated using hilite.me -->
+    <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+      <pre style="margin: 0; line-height: 125%">python -m SimpleHTTPServer</pre>
+    </div>
+    <p>
+      Just add the URL below into your browser and you'll be able to see your project as if it were online!
+    </p>
+    <!-- HTML generated using hilite.me -->
+    <div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+      <pre style="margin: 0; line-height: 125%">http://127.0.0.1:8000</pre>
+    </div>
+    <p>
+      If you don't like this approach, no worries. You might be interested in using something like <a href="https://pages.github.com/" target="_blank">GitHub Pages</a> or <a href="https://neocities.org/" target="blank">Neocities</a> to host your project. The upshot is that you're project will be online while you're making it.
+    </p>
+
+    <hr>
+    
+    <h2 id="front">Set-up: Front End</h2>
+    <p>
+      Using your text editor, set up a simple HTML file. Call it "index.html." We'll also add the container and some basic styling for our map
+    </p>
+    <p class="examples">
+      <a href="http://bl.ocks.org/maptastik/be990b397fcfa82612cf" target="_blank">Example</a>
+    </p>
 
     <hr>
 
@@ -203,14 +247,14 @@
 
     <hr>
 
-    <h2 id="gh-pages">Hosting with GitHub Pages</h2>
+ <!--    <h2 id="gh-pages">Hosting with GitHub Pages</h2>
     <p>
       GitHub is great resource for code-sharing, development, and storage. An added bonus is the automatic page generator for any repository you create. We will use this for hosting our web-app and storing all of the necessary components. Think of it as your personal set of chubby squirrel cheeks!
     </p>
     <img src="https://raw.githubusercontent.com/maptimelex/leaflet-squirrels/master/squirrel-cheeks.jpg" style="width: 75%" class="img-center">
     <p>
     When you store your project there will a be total of 5 files in your repository that that run your app. Once you have enabled your github pages branch, you can delete everything except for the index.html file. It will keep all the code for your app, you can rename it if you like as well. Our <a href="https://github.com/maptimelex/leaflet-squirrels" target="_blank">sample repository</a> demonstrates the set-up for this project.
-    </p>
+    </p> -->
 
     <hr>
     
@@ -220,11 +264,11 @@
     </p>
     <ol class="lst-lowalph">
       <li>Add Leaflet starter code</li>
-      <li>Specify the lat/long of our location</li>
+      <li>Specify the center lat/long of our starting view</li>
       <li>Add our tile layer URL from MapStack</li>
     </ol>
     <p class="examples">
-      <a href="https://github.com/maptimelex/leaflet-squirrels/blob/gh-pages/part1.html" target="_blank">Code</a> | <a href="http://maptimelex.github.io/leaflet-squirrels/part1.html" target="_blank">Example</a>
+      <a href="http://bl.ocks.org/maptastik/52aa10fde029aa42e8cd" target="_blank">Example</a>
     </p>
     
     <hr>
@@ -237,12 +281,12 @@
       We are going to:
     </p> 
       <ol class="lst-lowalph">
-        <li>Reference jQuery in the html <em>head</em></li>
+        <li>Reference jQuery in the html file's <em>head</em></li>
         <li>Load our data</li>
         <li>Add it to the map</li>
       </ol>
     <p class="examples">
-      <a href="https://github.com/maptimelex/leaflet-squirrels/blob/gh-pages/part2.html" target="_blank">Code</a> | <a href="http://maptimelex.github.io/leaflet-squirrels/part2.html" target="_blank">Example</a>
+      <a href="http://bl.ocks.org/maptastik/0687ec03edeeca0b26c0" target="_blank">Example</a>
     </p>
 
     <hr>
@@ -258,7 +302,7 @@
       <li>Add a new icon</li>
     </ol>
     <p class="examples">
-      <a href="https://github.com/maptimelex/leaflet-squirrels/blob/gh-pages/part3.html" target="_blank">Code</a> | <a href="http://maptimelex.github.io/leaflet-squirrels/part3.html" target="_blank">Example</a>
+      <a href="http://bl.ocks.org/maptastik/d7ef82e4b362c544a559" target="_blank">Example</a>
 
     <hr>
 
@@ -272,7 +316,7 @@
       <li>Optionally style with css</li>
     </ol>
     <p class="examples">
-      <a href="https://github.com/maptimelex/leaflet-squirrels/blob/gh-pages/part4.html" target="_blank">Code</a> | <a href="http://maptimelex.github.io/leaflet-squirrels/part4.html" target="_blank">Example</a>
+      <a href="http://bl.ocks.org/maptastik/a89c715ef78c15889fc5" target="_blank">Example</a>
     </p>
 
     <hr>
@@ -289,7 +333,7 @@
       <li>Add it to the map</li>
     </ol>
     <p class="examples">
-      <a href="https://github.com/maptimelex/leaflet-squirrels/blob/gh-pages/part5.html" target="_blank">Code</a> | <a href="http://maptimelex.github.io/leaflet-squirrels/part5.html" target="_blank">Example</a>
+      <a href="http://bl.ocks.org/maptastik/01daf587e5be7a6d3b1e" target="_blank">Example</a>
     </p>
 
     <hr>
@@ -305,7 +349,7 @@
       <li>Toss that style object into our call for ssa-states.geojson</li>
     </ol>
     <p class="examples">
-      <a href="https://github.com/maptimelex/leaflet-squirrels/blob/gh-pages/part6.html" target="_blank">Code</a> | <a href="http://maptimelex.github.io/leaflet-squirrels/part6.html" target="_blank">Example</a>
+      <a href="http://bl.ocks.org/maptastik/42aa0216a39e4c0b0c24" target="_blank">Example</a>
   </div>
   <div class='custom-popup' id="map"></div>
   <script>
