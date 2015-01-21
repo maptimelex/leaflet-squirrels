@@ -57,17 +57,17 @@
      // load the geojson file you saved in this directory
   $.getJSON("ssa-capitals.geojson",function(data){
     // use this to reference the icon in our repo 
-    var booIcon = L.icon({
-        iconUrl: 'boo.gif',
-        iconSize: [28, 28]
+    var squirrelIcon = L.icon({
+        iconUrl: 'squirrel-king-icon.png',
+        iconSize: [48, 48]
     });
     // add it to the map 
    L.geoJson(data,{
     pointToLayer: function(feature,latlng){
 	  var marker = L.marker(latlng,{
-      icon: booIcon
+      icon: squirrelIcon
     });
-    marker.bindPopup('<b>' + '<font size="3">' + feature.properties.FeatureNa + '</font>' + '</b>' + '<br/>' + feature.properties.elev);
+    marker.bindPopup('<b>Name: </b>' + feature.properties.FeatureNa + '<br/>' + '<b>Elevation: </b>' + feature.properties.elev);
           return marker;
     }
   }).addTo(map);

@@ -78,10 +78,10 @@
     // add it to the map 
    L.geoJson(data,{
     pointToLayer: function(feature,latlng){
-	  var marker = L.marker(latlng,{
+    var marker = L.marker(latlng,{
       icon: squirrelIcon
     });
-    marker.bindPopup('<b>' + '<font size="3">' + feature.properties.FeatureNa + '</font>' + '</b>' + '<br/>' + feature.properties.elev);
+    marker.bindPopup('<b>Name: </b>' + feature.properties.FeatureNa + '<br/>' + '<b>Elevation: </b>' + feature.properties.elev);
           return marker;
     }
   }).addTo(map);
