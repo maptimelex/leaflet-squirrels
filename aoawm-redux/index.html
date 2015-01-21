@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>01_WebMapBasics</title>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
+<style type='text/css'>
+body {
+  font-family: 'Open Sans' 'Helvetica';
+  letter-spacing:-5px;
+  background:#000;
+  background-size:100%;
+  color:#fff;
+  margin: 0;
+  padding: 0;
+  font-weight:bold;
+}
+
+h1, h2, h3, p {
+  margin:0;
+}
+
+ul {
+  margin-left: 10%;
+}
+
+em, a {
+  font-style:normal;
+  color:#8dbd0c;
+}
+
+a {
+  background: #2980b9;
+  color:#fff;
+  text-decoration:none;
+}
+
+img {
+  width:100%;
+}
+
+div {
+  cursor:pointer;
+  cursor:hand;
+  position:absolute;
+  top:0;
+  left:0;
+  margin: 10px;
+}
+div.imageTextLight {
+  text-shadow:0px 0px 100px rgba(34,34,34,0.95);
+}
+</style>
+
+<script type='text/javascript'>
+window.onload = function() {
+    var s = document.getElementsByTagName('div'), cur = 0;
+    if (!s) return;
+    function go(n) {
+        cur = n;
+        var i = 1e3, e = s[n];
+        for (var k = 0; k < s.length; k++) s[k].style.display = 'none';
+        e.style.display = 'inline';
+        e.style.fontSize = i + 'px';
+        if (e.firstChild.nodeName === 'IMG') {
+            document.body.style.backgroundImage = 'url(' + e.firstChild.src + ')';
+            e.firstChild.style.display = 'none';
+        } else {
+            document.body.style.backgroundImage = '';
+            document.body.style.backgroundColor = e.style.backgroundColor;
+        }
+        while (
+            e.offsetWidth > window.innerWidth ||
+            e.offsetHeight > window.innerHeight) {
+            e.style.fontSize = (i -= 10) + 'px';
+            if (i < 0) break;
+        }
+        e.style.marginTop = ((window.innerHeight - e.offsetHeight) / 2) + 'px';
+        if (window.location.hash !== n) window.location.hash = n;
+        document.title = e.textContent || e.innerText;
+    }
+    document.onclick = function() {
+        go(++cur % (s.length));
+    };
+    document.onkeydown = function(e) {
+        (e.which === 39) && go(Math.min(s.length - 1, ++cur));
+        (e.which === 37) && go(Math.max(0, --cur));
+    };
+    function parse_hash() {
+        return Math.max(Math.min(
+            s.length - 1,
+            parseInt(window.location.hash.substring(1), 10)), 0);
+    }
+    if (window.location.hash) cur = parse_hash() || cur;
+    window.onhashchange = function() {
+        var c = parse_hash();
+        if (c !== cur) go(c);
+    };
+
+    go(cur);
+};
+</script>
+</head>
+<body>
+
+<!--Intro section-->
+<div>Anatomy of a Web Map <em>REDUX</em></div>
+<div>With help from <a href="http://stamen.com/studio/alan">Alan McConchie</a>, <a href="http://stamen.com/studio/beth">Beth Schechter</a>, &amp; <a href="http://lyzidiamond.com/">Lyzi Diamond</a></div>
+<!--TODO: Get new shortlink -->
+<div>Housekeeping!<br>You can follow along here: <a href="http://bit.ly/1FRYeTQ" target="_blank">http://bit.ly/1FRYeTQ</a>. Links are in <a href="#">blue boxes</a>, <em>green</em> is just emphasis.</div>
+
+<!--Background section-->
+<section id="background">
+<div>What is a web map?</div>
+<div>Web maps are typically:
+  <ul>
+    <li><em>Browser</em>-based</li>
+    <li>Accessed via the <em>internet</em></li>
+    <li><em>Interactive</em></li>
+  </ul>
+</div>
+<div>Examples:</div>
+<div><img src="images/google-map.png"><a href="https://www.google.com/maps/preview">maps.google.com</a></div>
+<div><img src="images/osm.png"><a href="http://www.openstreetmap.org/">OpenStreetMap.org</a></div>
+
+<!--Components of web maps-->
+<div>What are the components that make up a typical web map?</div>
+
+<div><img src="images/basemap-datalayers-01.png"></div>
+<div>Made of tiles<br>Same size! 256x256 pixels<br>same boundaries<img src="images/tiles.gif"></div>
+<div class='imageTextLight'><img src="images/tiles-loading.gif"></div>
+<div>Tiles could be a
+  <ul>
+    <li>road map</li>
+    <li>satellite image</li>
+    <li>terrain/topographic map</li>
+    <li>................</li>
+  </ul>
+</div>
+<div>Each <em>zoom level</em> has its own set of tiles</div>
+<div>For example: <a href="http://tile.openstreetmap.org/4/2/6.png">http://tile.openstreetmap.org/4/2/6.png</a>
+  <br>
+  Where:
+  <ul>
+    <li>tile.openstreetmap.org = <em>server</em></li>
+    <li>4 = <em>z-value, zoom level</em></li>
+    <li>2/6 = <em>x/y value, location of tile in grid</em></li>
+  </ul>
+</div>
+<div><img src="images/basemap-datalayers-02.png"></div>
+<div><img src="images/basemap-datalayers-03.png"></div>
+<div><img src="images/basemap-datalayers-04.png"></div>
+<div><img src="images/basemap-datalayers-05.png"></div>
+<div><img src="images/basemap-datalayers-06.png"></div>
+<div>Filetypes: GIS uses <em>shapefiles</em>, but web maps prefer <em>KML</em>, or more recently, <a href="http://github.com/lyzidiamond/learn-geojson">GeoJSON</a></div>
+
+<div>Where does <a href="http://leafletjs.com">Leaflet</a> fit in?</div>
+<div>What does the javascript library do? <em>Grabs</em> the tiles, <em>adds</em> content layer, <em>handles</em> interaction.</div>
+<div><img src="images/anatomy-of-a-web-map.png"></div>
+<div><h3>Other Open Source Javascript libraries</h3>
+  <ul>
+    <li><a href="https://www.mapbox.com/mapbox.js/api/v2.1.4/">MapboxJS</a> (Built on and extends Leaflet)</li> 
+    <li><a href="http://openlayers.org">OpenLayers</a> (making a comeback!)</li>
+    <li><a href="http://modestmaps.com">Modest Maps</a></li>
+    <li><a href="http://polymaps.org">Polymaps</a></li>
+  </ul>
+</div>
+<div>And don't forget: <a href="https://developers.google.com/maps/documentation/javascript/">Google Maps API</a> / <a href="http://www.microsoft.com/maps/choose-your-bing-maps-API.aspx">Bing Maps API</a> / <a href="http://developer.here.com/web/guest/javascript-apis">Nokia HERE Maps API</a> / <a href="https://developers.arcgis.com/en/javascript/">ESRI ArcGIS API</a></div>
+
+
+<!-- <div class='imageTextLight'><img src="images/leaflet-toner-snapshot-giant-2.png"><em>The simplest possible web map:</em> <a href="http://bit.ly/1B20nhJ">http://bit.ly/1B20nhJ</a></div>
+<div><img src="images/leaflet_code-2.png"></div> -->
+
+<div>Presentation made with <a href="http://www.macwright.org/big/">big</a></div>
+</body>
+</html>
