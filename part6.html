@@ -55,7 +55,7 @@
       maxZoom: 19,
       minZoom: 4
     }).addTo(map);
-    
+
 
   var statesStyle = {
     "color":"#000000",
@@ -72,12 +72,12 @@
 
      // load the geojson file you saved in this directory
   $.getJSON("ssa-capitals.geojson", function(data){
-    // use this to reference the icon in our repo 
+    // use this to reference the icon in our repo
     var squirrelIcon = L.icon({
         iconUrl: 'squirrel-king-icon.png',
         iconSize: [48, 48]
     });
-    // add it to the map 
+    // add it to the map
    L.geoJson(data,{
     pointToLayer: function(feature,latlng){
     var marker = L.marker(latlng,{

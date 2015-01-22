@@ -24,15 +24,15 @@
       maxZoom: 19,
       minZoom: 4
     }).addTo(map);
-    
+
      // load the geojson file you saved in this directory
   $.getJSON("ssa-capitals.geojson",function(data){
-    // use this to reference the icon in our repo 
+    // use this to reference the icon in our repo
     var booIcon = L.icon({
         iconUrl: 'boo.gif',
         iconSize: [28, 28]
     });
-    // add it to the map 
+    // add it to the map
    L.geoJson(data,{
     pointToLayer: function(feature,latlng){
 	  return L.marker(latlng,{icon: booIcon});

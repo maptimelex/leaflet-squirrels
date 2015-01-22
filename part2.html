@@ -24,10 +24,10 @@
       maxZoom: 19,
       minZoom: 4
     }).addTo(map);
-    
+
      // load the geojson file you saved in this directory
   $.getJSON("ssa-capitals.geojson",function(data){
-    // add it to the map 
+    // add it to the map
     L.geoJson(data).addTo(map);
   });
 
