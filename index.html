@@ -40,7 +40,7 @@
       margin: 1em 0;
       padding: 0;
     }
-    
+
     /*Pop-up*/
     .custom-popup .leaflet-popup-content-wrapper {
       background: rgba(70, 145, 158, 0.7);
@@ -85,7 +85,7 @@
     }
 
     #squeeklaugh{
-      font-family: 'Comic Sans MS', monospace; 
+      font-family: 'Comic Sans MS', monospace;
     }
 
     .img-center{
@@ -98,7 +98,7 @@
     <h1>Going Nuts with Leaflet</h1>
 
     <hr>
-    
+
     <h2>Table of Contents</h2>
     <ol>
       <li><a href="#intro">Introduction</a></li>
@@ -139,7 +139,7 @@
     <h3>- or - <em>"You didn't build that" - Ryan Cooper <small>- Barack Obama</small></em></h3>
     <p>
       When you're a squirrel, pretty much everyone is a giant. And it is on the backs of giants that this tutorial was built. Special squeek outs to:
-    </p> 
+    </p>
     <ul id="squeekout">
       <li><a href="https://twitter.com/jonahadkins" target="_blank">Jonah Adkins</a> (maptimeHRVA)
         <ul class="lst-none">
@@ -203,7 +203,7 @@
     </p>
 
     <hr>
-    
+
     <h2 id="front">Step 0: Set-up > Front End</h2>
     <p>
       Using your text editor, set up a simple HTML file. Call it "index.html." We'll also add the container and some basic styling for our map
@@ -219,14 +219,14 @@
       When trying to learn a new mapping technology, it can sometimes be easy to get hung up on what to map as an example. Lots of things exist on this planet and that means there are a lot of things that can be mapped. To deal with the data hangup, I've taken the liberty of providing some prepared data for you.
     </p>
     <p>
-      January 21st is Squirrel Appreciation Day. This is <a href="http://www.holidayinsights.com/moreholidays/January/squirrelappreciation.htm" target="_blank">according to the internet</a>, so you know it's true! As such, we're going to be doing some mapping with a squirrel them (Take that maptimeBoston rats!). Now, Lexington doesn't collect data about squirrels. In fact, there's not a lot of publicly available data about squirrels. They can be a very withholding species, so I had to get creative. I really enjoy speculative cartography like Andrew Shears' map of the US broken into breakaway states. 
+      January 21st is Squirrel Appreciation Day. This is <a href="http://www.holidayinsights.com/moreholidays/January/squirrelappreciation.htm" target="_blank">according to the internet</a>, so you know it's true! As such, we're going to be doing some mapping with a squirrel them (Take that maptimeBoston rats!). Now, Lexington doesn't collect data about squirrels. In fact, there's not a lot of publicly available data about squirrels. They can be a very withholding species, so I had to get creative. I really enjoy speculative cartography like Andrew Shears' map of the US broken into breakaway states.
     </p>
     <a href="http://andrewshears.com/2011/12/08/the-united-states-that-couldve-been/" target="_blank"><img src="USNeverWasBig.png" class="img-center" style="width: 90%"/></a>
     <p>
       I wondered "What if the squirrels took over? What would the newly drawn boundaries of the Squirrel States of America look like?"
     </p>
     <p>
-      It's difficult to understand the political psychology of squirrels. If you've ever seen them battle over who gets to be on what side of a tree, you know that territorial demarcation is generally a fluid concept. However, let's suspend reality for a bit and assume that squirrels deal in a post-Westphalian notion of territory (whatever that means!). Using data from the Geographic Name Information System (GNIS), a part of the USGS I found 21 settlements (census designated areas, locales, and populated places) that included the term "squirrel". This data includes latitude and longitude so it can be mapped with minimal clean-up. 
+      It's difficult to understand the political psychology of squirrels. If you've ever seen them battle over who gets to be on what side of a tree, you know that territorial demarcation is generally a fluid concept. However, let's suspend reality for a bit and assume that squirrels deal in a post-Westphalian notion of territory (whatever that means!). Using data from the Geographic Name Information System (GNIS), a part of the USGS I found 21 settlements (census designated areas, locales, and populated places) that included the term "squirrel". This data includes latitude and longitude so it can be mapped with minimal clean-up.
     </p>
     <p>
       There are two main datasets we'll be working with that are derived from this GNIS data. The first one is called ssa-capitals.geojson. This is a point dataset that shows the location of the 21 squirrelly places filtered from that full GNIS dataset. We'll be using them as capitals for our Squirrel States of America (SSA). Check it out <a href="https://github.com/maptimelex/leaflet-squirrels/blob/master/ssa-capitals.geojson" target="_blannk">here</a>.
@@ -273,7 +273,7 @@
     </p> -->
 
     <hr>
-    
+
     <h2 id="leaflet">Step 1: Leaflet...at last!</h2>
     <p>
       Leaflet is the magic behind many of today's web-mapping applications. It provides an extensive library of functions supported by a dedicated team of contributors. We are going to use the <a href="http://leafletjs.com" target="_blank">Leaflet.js</a> library to create our map. Using the documentation from the Leaflet.js website, we are going to start with the most basic components needed for a map. We are going to:
@@ -286,7 +286,7 @@
     <p class="examples">
       <a href="http://bl.ocks.org/maptastik/52aa10fde029aa42e8cd" target="_blank">Example</a> | <a href="https://gist.githubusercontent.com/maptastik/52aa10fde029aa42e8cd/raw/0fc5764f5dbeabaa357ec8e9ae4a83f1cc4a2d20/index.html" target="_blank">Code</a>
     </p>
-    
+
     <hr>
 
     <h2 id="ssa-capitals">Step 2: Adding Feature Data > SSA Capitals</h2>
@@ -295,7 +295,7 @@
     </p>
     <p>
       We are going to:
-    </p> 
+    </p>
       <ol class="lst-lowalph">
         <li>Reference jQuery in the html file's <em>head</em></li>
         <li>Load our data</li>
@@ -306,7 +306,7 @@
     </p>
 
     <hr>
-                                  
+
     <h2 id="custom-icon">Step 3: Custom Icon</h2>
     <p>
       Our country has been taken over by egomaniacal squirrels. Would they really be satisfied with DEFAULT icons? We must keep them pleased! Fortunately, Leaflet allows us to use our own icons. <a href="https://github.com/maptimelex/leaflet-squirrels/blob/gh-pages/squirrel-king-icon.png" target="_blank">Here's one that will remind our squirrel overlords that they indeed are the rulers of us all</a>!
@@ -360,7 +360,7 @@
 
     <h2 id="custom-area">Step 6: Custom Area Fill</h2>
     <p>
-      Our squirrels look so posh in wearing their crowns and ontop of their simple, yet elegant basemap. They deserve better than that garish blue area fill for their respective states. Luckily, it takes just a little extra code to get our map styled. We're going to keep it simple, keeping the fill of the a transparent black and showing where their boundaries would be. 
+      Our squirrels look so posh in wearing their crowns and ontop of their simple, yet elegant basemap. They deserve better than that garish blue area fill for their respective states. Luckily, it takes just a little extra code to get our map styled. We're going to keep it simple, keeping the fill of the a transparent black and showing where their boundaries would be.
     <p>
       We've got two steps:
     </p>
@@ -377,7 +377,7 @@
     var map = L.map('map').setView([39.833, -98.35], 4);
     L.tileLayer(
       'http://{s}.sm.mapstack.stamen.com/((naip,$fff[difference],$fff[@60],$fff[hsl-saturation@90])[multiply],(mapbox-water,$fff[difference],$000[@60],$090d11[hsl-color]))/{z}/{x}/{y}.png', {
-        attribution: 'Map tiles by <a href=”http://stamen.com”>Stamen Design</a>, under <a href=”http://creativecommons.org/licenses/by/3.0”>CC BY 3.0</a>. Data by <a href=”http://openstreetmap.org”>OpenStreetMap</a>, under <a href=”http://creativecommons.org/licenses/by-sa/3.0”>CC BY SA</a>',
+        attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>. Data by <a href="http://openstreetmap.org">OpenStreetMap</a>, under <a href="http://creativecommons.org/licenses/by-sa/3.0">CC BY SA</a>',
         maxZoom: 18,
         minZoom: 4,
       }).addTo(map);
